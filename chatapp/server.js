@@ -22,7 +22,7 @@ io.on('connection', function(socket) {
 		}
 		users.push(userObj);
 		//io.emit broad cast to all connected user
-		io.emit('all-iser', users);
+		io.emit('all-users', users);
 	});
 });
 
