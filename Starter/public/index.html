@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-  <meta charset="utf-8">
-  <title>Starter</title>
-  </head>
-  <body>
-    <script src="/socket.io/socket.io.js"></script>
-    <script>
-      var socket = io('http://localhost:8080');
 
-      socket.on('message-from-server',function(event){
-          document.body.appendChild(document.createTextNode(event.greeting));
+	<head>
+		<meta charset="utf-8">
+		<title>Starter</title>
+	</head>
 
-          socket.emit('message-from-client',{
-            	greeting: 'Hello from client'
-          });
-      });
-    </script>
-  </body>
+	<body>
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+			var socket = io('http://localhost:8080');
+
+			socket.on('message-from-server', function(event) {
+				document.body.appendChild(document.createTextNode(event.greeting));
+
+				socket.emit('message-from-client', {
+					greeting: 'Hello from client'
+				});
+			});
+
+		</script>
+	</body>
+
 </html>
