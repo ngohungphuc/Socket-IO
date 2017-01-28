@@ -30,6 +30,10 @@ io.on('connection', function(socket) {
 		//io.emit broad cast to all connected user
 		io.emit('all-users', users);
 	});
+
+	socket.on('send-message', function(data) {
+		socket.broadcast.emit('message-received', data);
+	});
 });
 
 server.listen(port, function() {
