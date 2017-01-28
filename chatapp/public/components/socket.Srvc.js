@@ -22,9 +22,9 @@
 					callback.apply(socket, args);
 				});
 			});
-		}
+		};
 
-		function emit(eventName, data, callback() {
+		function emit(eventName, data, callback) {
 			socket.emit(eventName, data, function() {
 				var args = arguments;
 				$rootScope.$apply(function() {
@@ -33,6 +33,7 @@
 					}
 				});
 			});
-		});
+		};
+
 	};
 })();

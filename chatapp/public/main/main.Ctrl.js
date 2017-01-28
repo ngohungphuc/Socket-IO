@@ -8,6 +8,17 @@
 	MainCtrl.$inject = ['$scope', '$localStorage', 'socket', 'lodash'];
 
 	function MainCtrl($scope, $localStorage, socket, lodash) {
+		$scope.users = [];
 		$scope.mynickname = $localStorage.nickname;
+		var nickname = $scope.mynickname;
+
+		socket.emit('get-users');
+
+		socket.on('all-users', function(data) {
+			console.log(data);
+			$scope.users = data.filter(function(item) {
+				return item.nickname !== nickname;
+			});
+		});
 	};
 })();
